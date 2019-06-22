@@ -45,6 +45,9 @@ Route::get('/','HomeController@welcome')->name('frontend.landing');
 Route::middleware('auth')->group(function (){
 Route::post('comments/{id}', 'HomeController@commentUpdate')->name('front.commentUpdate');
 Route::post('comments/{id}/create', 'HomeController@commentStore')->name('front.commentStore');
+
+Route::post('profile', 'HomeController@profileUpdate')->name('profile.update');
+
 });
 
 

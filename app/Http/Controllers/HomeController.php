@@ -13,6 +13,7 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class HomeController extends Controller
@@ -27,7 +28,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->only([
-            'commentUpdate','commentStore'
+            'commentUpdate','commentStore','profileUpdate'
         ]);
     }
 
@@ -111,6 +112,30 @@ class HomeController extends Controller
     public  function profile($id,$slug=null){
         $user=User::findOrfail($id);
         return view('front-end.profile.index',compact('user'));
+
+    }
+
+    public function profileUpdate(\App\Http\Requests\FrontEnd\Users\Store $request){
+        $user=User::findOrfail(\auth()->user()->id);
+        $array=[];
+        if($request->email != $user->email){
+            $email=User::where('email',$request->email)->first();
+           // dd($email);
+            if($email==null){
+                $array['email']=$request->email;
+            }
+
+        }
+        if($request->name != $user->name){
+            $array['name']=$request->name;
+        }
+        if($request->password != ''){
+            $array['password']= Hash::make($request->password) ;
+        }
+        if(!empty($array)){
+            $user->update($array);
+        }
+        return redirect()->route('front.profile',['id'=>$user->id,'slug'=>slug($user->name)]);
 
     }
 }
