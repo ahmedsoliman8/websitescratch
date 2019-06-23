@@ -3,6 +3,14 @@
     {{$cat->name}}
 @endsection
 
+@section('meta_keywords')
+    {{$cat->meta_keywords}}
+@endsection
+
+@section('meta_des')
+    {{$cat->meta_des}}
+@endsection
+
 @section('content')
     <div class="section section-buttons">
         <div class="container">
