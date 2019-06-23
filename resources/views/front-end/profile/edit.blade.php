@@ -43,9 +43,12 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <button type="submit" style="margin-top: 30px" class="btn btn-info btn-round">Update Profile</button>
+                    <div class="clearfix"></div>
+                </div>
 
-                <button type="submit" class="btn btn-info btn-round">Update Profile</button>
-                <div class="clearfix"></div>
+
             </div>
         </form>
     </div>

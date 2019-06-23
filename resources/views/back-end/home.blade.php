@@ -10,8 +10,10 @@
         @slot('nav_title')
             Home Page
         @endslot
-
     @endcomponent
+
+   @include('back-end.home-sections.statics')
+   @include('back-end.home-sections.latest-comment')
 
 @endsection
 
