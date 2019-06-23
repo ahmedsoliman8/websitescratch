@@ -5,8 +5,8 @@
     Tip 2: you can also add an image using data-image tag
 -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            Creative Tim
+        <a href="{{route('home')}}" class="simple-text logo-normal">
+            5dmat-web
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -31,7 +31,7 @@
             </li>
             <li class="nav-item {{is_active('skills')}}">
                 <a class="nav-link" href="{{route('skills.index')}}">
-                    <i class="material-icons">content_paste</i>
+                    <i class="material-icons">offline_bolt</i>
                     <p>Skills</p>
                 </a>
             </li>
@@ -49,14 +49,14 @@
             </li>
             <li class="nav-item {{is_active('videos')}}">
                 <a class="nav-link" href="{{route('videos.index')}}">
-                    <i class="material-icons">content_paste</i>
+                    <i class="material-icons">video_call</i>
                     <p>Videos</p>
                 </a>
             </li>
 
             <li class="nav-item {{is_active('messages')}}">
                 <a class="nav-link" href="{{route('messages.index')}}">
-                    <i class="material-icons">content_paste</i>
+                    <i class="material-icons">cloud</i>
                     <p>Messages</p>
                 </a>
             </li>

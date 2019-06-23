@@ -10,18 +10,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="material-icons">notifications</i>
-                        <p class="d-lg-none d-md-block">
-                            Notifications
-                        </p>
-                    </a>
-                </li>
-
-                <!-- your navbar here -->
-            </ul>
+            <span class="text-warning" style="margin-right: 20px">Welcome , {{auth()->user()->name}} </span>
         </div>
     </div>
 </nav>
