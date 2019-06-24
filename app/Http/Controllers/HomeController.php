@@ -12,6 +12,7 @@ use App\Models\Skill;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video;
+use App\Repo\fooRepo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Hash;
 class HomeController extends Controller
 {
 
+
+    public function container(fooRepo $fooRepo){
+      dd($fooRepo->get());
+    }
 
     /**
      * Create a new controller instance.
