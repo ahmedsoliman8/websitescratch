@@ -2,8 +2,8 @@
 
 
 
+Route::get('/GetAllVideos','HomeController@GetAllVideos');
 
-Route::get('/container', 'HomeController@container');
 
 
 Route::namespace('BackEnd')->prefix('admin')->middleware('admin')->group(function (){

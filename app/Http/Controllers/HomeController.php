@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Interfaces\VideosRepositoryInterface;
 use App\Http\Requests\FrontEnd\Comments\Store;
 
 use App\Models\Category;
@@ -21,9 +22,11 @@ class HomeController extends Controller
 {
 
 
-    public function container(fooRepo $fooRepo){
-      dd($fooRepo->get());
-    }
+public  function  GetAllVideos(VideosRepositoryInterface $videosRepository){
+
+    $videos=$videosRepository->GetAllVideos(7);
+    dd($videos);
+}
 
     /**
      * Create a new controller instance.
