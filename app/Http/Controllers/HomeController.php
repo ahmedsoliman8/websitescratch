@@ -58,6 +58,7 @@ public  function  GetAllVideos(VideosRepositoryInterface $videosRepository){
         Message::create(
            $request->all()
         );
+        alert()->success('You Message have been saved , we call you in 24 hour', 'Done');
         return redirect()->route('frontend.landing');
     }
     public function index()
@@ -103,13 +104,20 @@ public  function  GetAllVideos(VideosRepositoryInterface $videosRepository){
         $comment=Comment::findOrfail($id);
         if(($comment->user_id == auth()->user()->id) || (auth()->user()->group == 'sdmin')){
             $comment->update(['comment'=>$request->comment]);
+            alert()->success('Your Comment Has Been Updated', 'Done');
+        }else{
+            alert()->error('we didnot found this comment', 'Done');
         }
+
+
         return redirect()->route('frontend.video',['id'=>$comment->video_id,'#comments']);
     }
 
     public function commentStore($id,Store $request){
         $video=Video::published()->findOrfail($id);
         Comment::create(['user_id'=>Auth::user()->id,'video_id'=>$id,'comment'=>$request->comment]);
+
+        alert()->success('Your Comment Has Been Added', 'Done');
         return redirect()->route('frontend.video',['id'=>$id,'#comments']);
     }
     public  function page($id,$slug=null){
@@ -143,6 +151,8 @@ public  function  GetAllVideos(VideosRepositoryInterface $videosRepository){
         if(!empty($array)){
             $user->update($array);
         }
+        alert()->success('Your Profile Has Been Updated', 'Done');
+
         return redirect()->route('front.profile',['id'=>$user->id,'slug'=>slug($user->name)]);
 
     }
